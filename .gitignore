@@ -8,3 +8,7 @@ node_modules/
 .github/
 cloudinary_python.txt
 kaggle.json
+jupyter_notebooks/.ipynb_checkpoints
+.Trash-1000
+
+
