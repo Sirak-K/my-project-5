@@ -1,0 +1,2 @@
+EnclosedPorch,BsmtUnfSF,OverallCond,WoodDeckSF,OpenPorchSF,BedroomAbvGr,BsmtExposure,BsmtFinType1,MasVnrArea,BsmtFinSF1,LotFrontage,LotArea,YearRemodAdd,TotalBsmtSF,1stFlrSF,GarageYrBlt,GarageFinish,GarageArea,YearBuilt,KitchenQual,2ndFlrSF,GrLivArea,OverallQual
+-0.01,0.11,-0.13,0.14,0.16,0.24,0.3,0.33,0.33,0.4,0.41,0.46,0.57,0.58,0.58,0.59,0.6,0.61,0.65,0.67,0.69,0.73,0.81
