@@ -21,9 +21,8 @@ def _03_target_prediction_body():
         "house-price/inherited_houses.csv"
     )
 
-
-    # Predict prices of inherited houses 
-    # with the ML pipeline from TargetPrediction notebook
+    # Predict prices of inherited houses with the ML pipeline
+    #  - from TargetPrediction notebook
     st.write("### House sale prices from client's inherited houses")
     st.write(
         f"* The table below shows the four inherited houses profile"
@@ -42,7 +41,7 @@ def _03_target_prediction_body():
     )
     st.write(df.head())
 
-    # calculate sum of inherited houses predicted prices
+    # Calculate the sum of inherited houses predicted prices
     sum = df['Predicted House Sale Price'].sum()
     st.write(
         f"* The sum of the predicted sale prices for the four houses is:"
@@ -51,19 +50,19 @@ def _03_target_prediction_body():
 
     st.write("---")
 
-    # predict price of any other house in Ames, Iowa
+    # Predict price of any other house in Ames, Iowa
     st.write("### Predict house sale prices in Ames, Iowa  \n")
     st.write("* Only the two house attributes"
-             "'Above Ground Living Area Square Feet' and 'Overall Quality' "
+             " 'Above Ground Living Area Square Feet' and 'Overall Quality' "
              " are needed for the ML model to predict the price.")
     st.warning("* The model has limitations: For example the maximum"
                "'Above Ground Living Area Square Feet'"
-               " in the train set is 5642 square feet and one should not expect"
-               " the model to generalize to larger areas."
+               " in the train set is 5642 square feet and one should "
+               " not expect the model to generalize to larger areas."
                )
     # Create interactive input fields for live data
     X_live = DrawInputsWidgets()
-    # predict on live data
+    # Predict on live data
     if st.button("Run Predictive Analysis"):
         house_price_prediction = pipeline.predict(
             X_live.filter(best_features)).round(0)
@@ -71,6 +70,7 @@ def _03_target_prediction_body():
             f"* The predicted sale price for the house is:"
             f" &nbsp; &nbsp; &nbsp;{house_price_prediction[0]}  \n"
         )
+
 
 # Create input fields
 def DrawInputsWidgets():
@@ -84,7 +84,7 @@ def DrawInputsWidgets():
 
     # We are using these features to feed the ML pipeline
 
-    # create an empty DataFrame, which will be the live data
+    # Create an empty DataFrame, which will be the live data
     X_live = pd.DataFrame([], index=[0])
 
     # From here on we draw the widget based on the variable type 

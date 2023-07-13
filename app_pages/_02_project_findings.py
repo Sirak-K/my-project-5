@@ -50,15 +50,15 @@ def _02_project_findings_body():
     st.write("### House Sale Price study")
     st.info(
         f"* The client is interested in discovering how the house attributes"
-        f"correlate with the sale price."
+        f" correlate with the sale price."
         f" Therefore, the client expects data visualizations of the correlated"
-        f"variables against the sale price to show that.")
+        f" variables against the sale price to show that.")
 
     # display housing data dataframe
     if st.checkbox("Inspect housing records dataset"):
         st.write(
             f"* The dataset has {df.shape[0]} rows and {df.shape[1]} columns, "
-            f"find below the first 10 rows.")
+            f" the first 10 rows are shown below.")
 
         st.write(df.head(10))
 
@@ -89,8 +89,8 @@ def _02_project_findings_body():
 
     st.write(
         f"Seven other variables are still important but to a lesser degree:"
-        f"They show moderate correlation with the sale price"
-        f"(shown in order of importance):  \n"
+        f" They show moderate correlation with the sale price"
+        f" (shown in order of importance):  \n"
         f"**{moderate_correlation}**.  \n"
     )
 
@@ -112,14 +112,14 @@ def _02_project_findings_body():
 
     # Heatmap of correlation coefficients above 0.4
     if st.checkbox("Heatmap of the fourteen variables in order of importance."
-                   "We see that the two most important variables"
-                   " are 'Overall Quality' and 'Above Ground Living Area Sq."
-                   "Feet'."):
+                   " We see that the two most important variables"
+                   " are 'Overall Quality' and 'Above Ground Living"
+                   " Area Square Feet'."):
         heatmap(df_corr)
 
     # Scatterplots of sale price against correlated variable
     if st.checkbox("Scatterplots for the seven most important attributes."
-                   "They show how sale price increases with "
+                   " They show how sale price increases with "
                    "the value of the attribute, e.g 'Overall Quality'."):
 
         st.success(
@@ -129,11 +129,11 @@ def _02_project_findings_body():
         st.warning(
             f"* We also see that the spread in price increases with price.  \n"
         )
-        st.write(f"* Plot Sale Price against attribute")
+        st.write(f"* Plot the Target Variable ('SalePrice') against attribute:")
         scatterplot(df, dic, strong_correlation, dtype_dict)
 
 
-# function created using code from "DataExploration" notebook - Heatmap section
+# Function created using code from "DataExploration" notebook - Heatmap
 def heatmap(df):
     import numpy as np
     import matplotlib.pyplot as plt

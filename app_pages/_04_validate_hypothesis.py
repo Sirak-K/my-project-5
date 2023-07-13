@@ -9,7 +9,7 @@ def _04_validate_hypothesis_body():
 
     st.write("### Project Hypothesis and Validation")
 
-    # conclusions taken from DataExploration notebook
+    # Conclusions taken from DataExploration notebook
     st.success(
         f"* We suspect that there is a few very high sale prices."
         f" The combined boxplot/histogram below confirms that:"

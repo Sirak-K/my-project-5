@@ -3,7 +3,7 @@ import streamlit as st
 
 def _01_project_summary_body():
 
-    st.write("### Quick Project Summary")
+    st.write("### Project Summary")
 
     # Information from README file - "Dataset Content" section
     st.info(
@@ -17,8 +17,8 @@ def _01_project_summary_body():
 
     # Link to README file, so the users can have access to the full project doc.
     st.write(
-        f"* For additional information, please visit and **read** the "
-        f"[Project README file](https: // github.com/Sirak-K/my-project-5)")
+        f"* For additional information, please **see** the project's "
+        f"[README-file](https://github.com/Sirak-K/my-project-5).")
 
     # copied from README file - "Business Requirements" section
     st.success(

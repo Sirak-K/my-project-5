@@ -14,10 +14,10 @@ class MultiPage:
         # Icons: https://twitter.github.io/twemoji/2/test/preview.html
 
     def add_page(self, title, func) -> None: 
-        self.pages.append({"title": title, "function": func })
+        self.pages.append({"title": title, "function": func})
 
     def run(self):
         st.title(self.app_name)
-        page = st.sidebar.radio('Menu', self.pages, format_func=lambda page: page['title'])
+        page = st.sidebar.radio('Menu', self.pages,
+                                format_func=lambda page: page['title'])
         page['function']()
-
