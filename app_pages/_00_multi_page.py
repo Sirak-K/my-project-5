@@ -9,10 +9,7 @@ class MultiPage:
 
         st.set_page_config(
             page_title=self.app_name,
-            page_icon="📘",
-            theme="dark",
-            background_color="#333333",
-            primary_color="#FFFFFF"
+            page_icon="📘"
             )
         # Icons: https://twitter.github.io/twemoji/2/test/preview.html
 

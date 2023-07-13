@@ -3,22 +3,22 @@ import pandas as pd
 import numpy as np
 import joblib
 
-# load house price data
+# Load house price data
 
 
 @st.cache(suppress_st_warning=True, allow_output_mutation=True)
 def load_house_price_data():
-    df = pd.read_csv("outputs/datasets/collection/HousePricesRecords.csv")
+    df = pd.read_csv("outputs/datasets/collection/house_prices_records.csv")
     return df
 
-# load correlation coefficients - from HouseSalePrices notebook
+# Load correlation coefficients - from DataExploration notebook
 
 
 def load_corr():
-    df = pd.read_csv("outputs/house_prices_study/v1/corr_df_rev.csv")
+    df = pd.read_csv("outputs/eda_study/corr_df_rev.csv")
     return df
 
-# load pkl file
+# Load pkl file
 
 
 def load_pkl_file(file_path):

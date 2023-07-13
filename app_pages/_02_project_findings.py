@@ -1,5 +1,8 @@
 import numpy as np
 import streamlit as st
+import sys
+sys.path.append("./src")
+
 from src.data_management import load_house_price_data
 from src.data_management import load_corr
 from src.data_management import load_pkl_file
@@ -11,24 +14,45 @@ sns.set_style("whitegrid")
 
 def _02_project_findings_body():
 
-    # load housing data, correlation coefficients and a dictionary used in encoding
-    # object variables
+    # Load House Prices data
+    # Load Correlation Coefficients
+    # Load dictionary used for encoding
+    # Define object variables
     df = load_house_price_data()
     df_corr = load_corr()
-    dic = load_pkl_file('outputs/house_prices_study/v1/dic.pkl')
+    dic = load_pkl_file('outputs/eda_study/dic.pkl')
 
-    # copied from HouseSalePrices study notebook
-    strongly_correlated = ['OverallQual', 'GrLivArea', '2ndFlrSF',
-                           'KitchenQual', 'YearBuilt', 'GarageArea', 'GarageFinish']
-    moderately_correlated = ['GarageYrBlt', '1stFlrSF', 'TotalBsmtSF',
-                             'YearRemodAdd', 'LotArea', 'LotFrontage', 'BsmtFinSF1']
-    dtype_dict = {'OverallQual': 'object', 'GrLivArea': 'numeric', '2ndFlrSF': 'numeric', 'KitchenQual': 'object', 'YearBuilt': 'numeric', 'GarageArea': 'numeric', 'GarageFinish': 'object',
-                  'GarageYrBlt': 'numeric', '1stFlrSF': 'numeric', 'TotalBsmtSF': 'numeric', 'YearRemodAdd': 'numeric', 'LotArea': 'numeric', 'LotFrontage': 'numeric', 'BsmtFinSF1': 'numeric'}
+    # Copied from DataExploration study notebook
+    strong_correlation = ['OverallQual', 'GrLivArea', '2ndFlrSF',
+                          'KitchenQual', 'YearBuilt', 'GarageArea',
+                          'GarageFinish']
+    moderate_correlation = ['GarageYrBlt', '1stFlrSF', 'TotalBsmtSF',
+                            'YearRemodAdd', 'LotArea', 'LotFrontage',
+                            'BsmtFinSF1']
+
+    dtype_dict = {
+        'OverallQual': 'object',
+        'GrLivArea': 'numeric',
+        '2ndFlrSF': 'numeric',
+        'KitchenQual': 'object',
+        'YearBuilt': 'numeric',
+        'GarageArea': 'numeric',
+        'GarageFinish': 'object',
+        'GarageYrBlt': 'numeric',
+        '1stFlrSF': 'numeric',
+        'TotalBsmtSF': 'numeric',
+        'YearRemodAdd': 'numeric',
+        'LotArea': 'numeric',
+        'LotFrontage': 'numeric',
+        'BsmtFinSF1': 'numeric'
+    }
 
     st.write("### House Sale Price study")
     st.info(
-        f"* The client is interested in discovering how the house attributes correlate with the sale price."
-        f" Therefore, the client expects data visualizations of the correlated variables against the sale price to show that.")
+        f"* The client is interested in discovering how the house attributes"
+        f"correlate with the sale price."
+        f" Therefore, the client expects data visualizations of the correlated"
+        f"variables against the sale price to show that.")
 
     # display housing data dataframe
     if st.checkbox("Inspect housing records dataset"):
@@ -40,62 +64,76 @@ def _02_project_findings_body():
 
     st.write("---")
 
-    # Correlation Study Summary
+    # Project Findings - Correlation Study Summary
     st.write(
-        f"* A correlation study was conducted in the notebook to find  "
-        f"the most important variables for determining the house sale price.  \n"
-        f"The seven most important variables are (in order of importance):  \n**{strongly_correlated}**.  \n\n"
+        f"* A correlation study was conducted in the notebook to find "
+        f"the most important variables for determining the sale price.  \n"
+        f"The seven most important variables are (in order of importance):  \n"
+        f"**{strong_correlation}**.  \n\n"
     )
 
     # Meaning of variables: From README file - "Dataset Content" section
     st.info(
         f"Meaning of variables:  \n"
-        f"* **{strongly_correlated[0]}**: Rates the overall material and finish of the house.  \n"
-        f"* **{strongly_correlated[1]}**: Above grade (ground) living area square feet. \n"
-        f"* **{strongly_correlated[2]}**: Second floor square feet. \n"
-        f"* **{strongly_correlated[3]}**: Kitchen quality. \n"
-        f"* **{strongly_correlated[4]}**: Original construction date. \n"
-        f"* **{strongly_correlated[5]}**: Size of garage in square feet. \n"
-        f"* **{strongly_correlated[6]}**: Rates the interior finish of the garage. \n"
+        f"* **{strong_correlation[0]}**: Rates the overall material and finish"
+        f" of the house.  \n"
+        f"* **{strong_correlation[1]}**: Above grade (ground) living area"
+        f"square feet. \n"
+        f"* **{strong_correlation[2]}**: Second floor square feet. \n"
+        f"* **{strong_correlation[3]}**: Kitchen quality. \n"
+        f"* **{strong_correlation[4]}**: Original construction date. \n"
+        f"* **{strong_correlation[5]}**: Size of garage in square feet. \n"
+        f"* **{strong_correlation[6]}**: Rates the interior finish of the "
+        f"garage. \n"
     )
 
     st.write(
-        f"Seven other variables are still important but to a lesser degree: They show moderate correlation with the sale price (shown in order of importance):  \n"
-        f"**{moderately_correlated}**.  \n"
+        f"Seven other variables are still important but to a lesser degree:"
+        f"They show moderate correlation with the sale price"
+        f"(shown in order of importance):  \n"
+        f"**{moderate_correlation}**.  \n"
     )
 
     # Meaning of variables: From README file - "Dataset Content" section
     st.info(
         f"Meaning of variables:  \n"
-        f"* **{moderately_correlated[0]}**: Year garage was built.  \n"
-        f"* **{moderately_correlated[1]}**: First Floor square feet. \n"
-        f"* **{moderately_correlated[2]}**: Total square feet of basement area. \n"
-        f"* **{moderately_correlated[3]}**: Remodel date (same as construction date if no remodeling or additions). \n"
-        f"* **{moderately_correlated[4]}**: Lot size in square feet. \n"
-        f"* **{moderately_correlated[5]}**: Linear feet of street connected to property. \n"
-        f"* **{moderately_correlated[6]}**: Type 1 finished square feet of basement area. \n"
+        f"* **{moderate_correlation[0]}**: Year garage was built.  \n"
+        f"* **{moderate_correlation[1]}**: First Floor square feet. \n"
+        f"* **{moderate_correlation[2]}**: Total square feet"
+        f"of basement area. \n"
+        f"* **{moderate_correlation[3]}**: Remodel date"
+        f"(same as construction date if no remodeling or additions). \n"
+        f"* **{moderate_correlation[4]}**: Lot size in square feet. \n"
+        f"* **{moderate_correlation[5]}**: Linear feet of street"
+        f"connected to property. \n"
+        f"* **{moderate_correlation[6]}**: Type 1 finished square feet"
+        f"of basement area. \n"
     )
 
     # Heatmap of correlation coefficients above 0.4
-    if st.checkbox("Heatmap of the fourteen variables in order of importance. We see that the two most important variables"
-                   " are 'Overall Quality' and 'Above Ground Living Area Square Feet'."):
+    if st.checkbox("Heatmap of the fourteen variables in order of importance."
+                   "We see that the two most important variables"
+                   " are 'Overall Quality' and 'Above Ground Living Area Sq."
+                   "Feet'."):
         heatmap(df_corr)
 
     # Scatterplots of sale price against correlated variable
-    if st.checkbox("Scatterplots for the seven most important attributes. They show how sale price increases with "
-                   "the value of the attribute, for example 'Overall Quality'."):
+    if st.checkbox("Scatterplots for the seven most important attributes."
+                   "They show how sale price increases with "
+                   "the value of the attribute, e.g 'Overall Quality'."):
 
         st.success(
-            f"* The plots below confirm the expectation that the stronger the correlation the clearer the trend.  \n"
+            f"* The plots below confirm the expectation that"
+            f"the stronger the correlation the clearer the trend.  \n"
         )
         st.warning(
             f"* We also see that the spread in price increases with price.  \n"
         )
         st.write(f"* Plot Sale Price against attribute")
-        scatterplot(df, dic, strongly_correlated, dtype_dict)
+        scatterplot(df, dic, strong_correlation, dtype_dict)
 
 
-# function created using code from "HouseSalePrices" notebook - Heatmap section
+# function created using code from "DataExploration" notebook - Heatmap section
 def heatmap(df):
     import numpy as np
     import matplotlib.pyplot as plt
@@ -107,15 +145,15 @@ def heatmap(df):
     mask[abs(df) < 0.4] = True
 
     sns.heatmap(data=df, annot=True, xticklabels=True, yticklabels=True,
-                mask=mask, cmap='viridis', annot_kws={"size": annot_size}, ax=axes,
-                linewidth=0.5)
+                mask=mask, cmap='viridis', annot_kws={"size": annot_size},
+                ax=axes, linewidth=0.5)
 
     st.pyplot(fig)
 
 
-# function created using code from "HouseSalePrices" notebook - Scatterplot section
-def scatterplot(df, dic, strongly_correlated, dtype_dict):
-    for col in strongly_correlated:
+# Function created using code from "DataExploration" notebook - Scatterplot
+def scatterplot(df, dic, strong_correlation, dtype_dict):
+    for col in strong_correlation:
         if df[col].dtype == 'object':
             df1 = df[df[col] != 'None']
             df2 = df1[df1[col].notnull()]

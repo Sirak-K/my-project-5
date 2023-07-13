@@ -1,5 +1,5 @@
 import streamlit as st
-from app_pages.multi_page import MultiPage
+from app_pages._00_multi_page import MultiPage
 
 # Load Scripts: Pages
 from app_pages._01_project_summary import _01_project_summary_body
@@ -12,9 +12,9 @@ from app_pages._05_pipeline_and_model import _05_pipeline_and_model_body
 app = MultiPage(app_name="House Prices in Ames, Iowa")
 
 # Add app pages using .add_page()
-app.add_page("Quick Project Summary", _01_project_summary_body)
-app.add_page("House Price Study", _02_project_findings_body)
-app.add_page("Predict House Price", _03_target_prediction_body)
+app.add_page("Project Summary", _01_project_summary_body)
+app.add_page("Project Findings", _02_project_findings_body)
+app.add_page("Target Prediction", _03_target_prediction_body)
 app.add_page("Project Hypothesis", _04_validate_hypothesis_body)
 app.add_page("ML Regressor Model", _05_pipeline_and_model_body)
 
