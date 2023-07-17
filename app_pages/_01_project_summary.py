@@ -15,9 +15,15 @@ def _01_project_summary_body():
         f" wooddeck area, overall quality"
         f", kitchen quality, construction date and so on.\n\n")
 
-    # Link to README file, so the users can have access to the full project doc.
+    # Link to Dataset
     st.write(
-        f"* For additional information, please **see** the project's "
+        f"* View the dataset on "
+        f"[Kaggle](https://www.kaggle.com/datasets/codeinstitute/"
+        f"housing-prices-data).")
+
+    # Link to README
+    st.write(
+        f"* For additional information, please see the project's "
         f"[README-file](https://github.com/Sirak-K/my-project-5).")
 
     # copied from README file - "Business Requirements" section

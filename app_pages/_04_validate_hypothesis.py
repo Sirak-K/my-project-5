@@ -12,8 +12,8 @@ def _04_validate_hypothesis_body():
     # Conclusions taken from DataExploration notebook
     st.success(
         f"* We suspect that there is a few very high sale prices."
-        f" The combined boxplot/histogram below confirms that:"
-        f" The histogram extends far to the right."
+        f" The combined boxplot/histogram below confirms the hypothesis"
+        f" which states that the histogram extends far to the right."
         f" It has a long tail.  \n"
         f"* The price values well beyond the average range are called outliers"
         f" and are shown as dots to the right of the box in the boxplot. "

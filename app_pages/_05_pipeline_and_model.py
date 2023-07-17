@@ -28,7 +28,7 @@ def _05_pipeline_and_model_body():
         f"* We agreed with the client on an R2 score of at least 0.75"
         f" on both train and test set.  \n"
         f"* The pipeline achieves 0.86 and 0.80 on the train set and test set" 
-        f" respectively  \n"
+        f" respectively.  \n"
     )
     st.write("---")
 
@@ -40,7 +40,7 @@ def _05_pipeline_and_model_body():
     # Show the best features and their importance for the ML model
     st.write("* **The features of the model was trained by importance**")
     st.info("We see that the most important variable for predicting"
-            " the sale price is 'OverallQual'")
+            " the sale price is 'OverallQual'.")
     st.write(X_train.columns.to_list())
     st.image(house_price_feat_importance)
     st.write("---")
@@ -54,7 +54,7 @@ def _05_pipeline_and_model_body():
     # Plot predicted versus actual sale price for train and test sets
     st.write("* **Predicted versus actual sale price scatterplot**")
     st.info("* For prices below $400000, the data points follow the "
-            "red line where the predicted price equals actual price.  \n"
+            "red line where the predicted price equals the actual price.  \n"
             "* For higher prices, our model may not accurately predict prices."
             " On the scatterplot showing the predictions on the train set"
             " (left plot below), the prices above $400000 are underestimated"

@@ -1,14 +1,14 @@
+import seaborn as sns
+import matplotlib.pyplot as plt
+from src.data_management import load_pkl_file
+from src.data_management import load_corr
+from src.data_management import load_house_price_data
 import numpy as np
 import streamlit as st
 import sys
 sys.path.append("./src")
 
-from src.data_management import load_house_price_data
-from src.data_management import load_corr
-from src.data_management import load_pkl_file
 
-import matplotlib.pyplot as plt
-import seaborn as sns
 sns.set_style("whitegrid")
 
 
@@ -77,8 +77,8 @@ def _02_project_findings_body():
         f"Meaning of variables:  \n"
         f"* **{strong_correlation[0]}**: Rates the overall material and finish"
         f" of the house.  \n"
-        f"* **{strong_correlation[1]}**: Above grade (ground) living area"
-        f"square feet. \n"
+        f"* **{strong_correlation[1]}**: Above ground living area"
+        f" square feet. \n"
         f"* **{strong_correlation[2]}**: Second floor square feet. \n"
         f"* **{strong_correlation[3]}**: Kitchen quality. \n"
         f"* **{strong_correlation[4]}**: Original construction date. \n"
@@ -88,7 +88,7 @@ def _02_project_findings_body():
     )
 
     st.write(
-        f"Seven other variables are still important but to a lesser degree:"
+        f"Seven other variables are still important but to a lesser degree."
         f" They show moderate correlation with the sale price"
         f" (shown in order of importance):  \n"
         f"**{moderate_correlation}**.  \n"
@@ -100,14 +100,14 @@ def _02_project_findings_body():
         f"* **{moderate_correlation[0]}**: Year garage was built.  \n"
         f"* **{moderate_correlation[1]}**: First Floor square feet. \n"
         f"* **{moderate_correlation[2]}**: Total square feet"
-        f"of basement area. \n"
+        f" of basement area. \n"
         f"* **{moderate_correlation[3]}**: Remodel date"
-        f"(same as construction date if no remodeling or additions). \n"
+        f" (same as construction date if no remodeling or additions). \n"
         f"* **{moderate_correlation[4]}**: Lot size in square feet. \n"
         f"* **{moderate_correlation[5]}**: Linear feet of street"
-        f"connected to property. \n"
+        f" connected to property. \n"
         f"* **{moderate_correlation[6]}**: Type 1 finished square feet"
-        f"of basement area. \n"
+        f" of basement area. \n"
     )
 
     # Heatmap of correlation coefficients above 0.4
@@ -124,12 +124,12 @@ def _02_project_findings_body():
 
         st.success(
             f"* The plots below confirm the expectation that"
-            f"the stronger the correlation the clearer the trend.  \n"
+            f" the stronger the correlation the clearer the trend.  \n"
         )
         st.warning(
             f"* We also see that the spread in price increases with price.  \n"
         )
-        st.write(f"* Plot the Target Variable ('SalePrice') against attribute:")
+        st.write(f"* Plot Target Variable ('SalePrice') against attribute:")
         scatterplot(df, dic, strong_correlation, dtype_dict)
 
 
