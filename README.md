@@ -1,6 +1,8 @@
 # Predictive Analytics - House Sale Prices in Ames, Iowa
 
-![ML Regressor Model - House Sale Prices](https://github.com/user-attachments/assets/8651d0e4-24ae-49eb-b702-cb3f159fee63)
+
+![[Project 5 - Preview Image](https://github.com/user-attachments/assets/7fa48a4f-b12c-4dd8-8475-167d15c37147)
+
 
 [Link to deployed application](https://my-project-5-4e932bfbaace.herokuapp.com)
 
